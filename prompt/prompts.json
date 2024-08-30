@@ -1,0 +1,94 @@
+{
+    "gpt":{
+        "system":{
+            "role":"system",
+            "content":"You are a smart contract auditor."
+        },
+        "analysis":{
+            "role":"user",
+            "content": "Here is a smart contract's code snippet, telling the purpose of each functions.\n"
+        },
+        "graph":{
+            "content":"Regard Ether tansferred to this contract as taint variable. The propagation of taint shows if the contract generates returns for earlier investors through revenue paid by new investors. A graph of the propagation of Ether is extracted from the code:\n"
+        },
+        "chain_of_thought":{
+            "content": "Analyze the graph, telling the business model of the contract."
+        },
+        "decision":{
+            "role":"user",
+            "content":"Therefore, determine if it is a Ponzi contract or not. (anwser 'true' or 'false' with json: {'decision': anwser})"
+        },
+        "abalation":{
+            "content":"Determine if it is a Ponzi contract or not. (anwser 'true' or 'false' with json: {'decision': anwser})"
+        },
+        "ponzi":{
+            "content":"A Ponzi scheme is a fraudulent investment scam that promises high returns with little or no risk to investors. It generates returns for earlier investors through revenue paid by new investors, rather than from legitimate business activities or profit of financial trading. Ponzi schemes typically collapse when the flow of new investors dries up, and the operator is unable to pay returns to earlier investors.\n"
+        }
+    },
+    "llama2":{
+        "system":{
+            "role":"system",
+            "content":"You are a smart contract auditor."
+        },
+        "analysis":{
+            "role":"user",
+            "content": "Audit the following smart contract's source code, telling the purpose of each functions.\n"
+        },
+        "chain_of_thought":{
+            "graph":"To track the ETH in the contract, a graph of dependency between variables of the contract is generated:\n",
+            "explain":"In this graph, 'msg.sender' is the address of sender, 'msg.value' is the amount of ETH sent to this contract. '->' represents the variable on its right depends on the variable on its left. ",
+            "content":"Analyze the graph, telling the business model of the contract."
+        },
+        "decision":{
+            "role":"user",
+            "content":"According to the above analysis, determine if the contract promises high returns with little or no risk to investors or generates returns for earlier investors through revenue paid by new investors? (anwser 'true' or 'false' with json: {'decision': anwser})"
+        },
+        "abalation":{
+            "content":"Determine if the contract promises high returns with little or no risk to investors or generates returns for earlier investors through revenue paid by new investors? (anwser 'true' or 'false' with json: {'decision': anwser})"
+        }
+    },
+    "llama3":{
+        "system":{
+            "role":"system",
+            "content":"You are a smart contract auditor."
+        },
+        "analysis":{
+            "role":"user",
+            "content": "Audit the following smart contract's source code, telling the purpose of each functions.\n"
+        },
+        "chain_of_thought":{
+            "graph":"To track the ETH in the contract, a graph of dependency between variables of the contract is generated:\n",
+            "explain":"In this graph, 'msg.sender' is the address of sender, 'msg.value' is the amount of ETH sent to this contract. '->' represents the variable on its right depends on the variable on its left. ",
+            "content":"Analyze the graph, the business model of the contract is:"
+        },
+        "decision":{
+            "role":"user",
+            "content":"According to the above analysis, does the contract generate returns for earlier investors through revenue paid by new investors? Therefore, determine whether it is a Ponzi contract. (Only anwser 'true' or 'false' with json: {'decision': anwser})"
+        },
+        "abalation":{
+            "content":"Determine if the contract promises high returns with little or no risk to investors or generates returns for earlier investors through revenue paid by new investors? (anwser 'true' or 'false' with json: {'decision': anwser})"
+        }
+    },
+    "mistral":{
+        "system":{
+            "role":"system",
+            "content":"You are a smart contract auditor."
+        },
+        "analysis":{
+            "role":"user",
+            "content": "Here is a smart contract's source code snippet.\n"
+        },
+        "chain_of_thought":{
+            "graph":"To track the ETH in the contract, a graph of dependency between variables of the contract is generated:\n",
+            "explain":"In this graph, 'msg.sender' is the address of sender, 'msg.value' is the amount of ETH sent to this contract. '->' represents the variable on its right depends on the variable on its left. ",
+            "content":"By analyzing the code snippet and the graph, we know that the business model of the contract is:"
+        },
+        "decision":{
+            "role":"user",
+            "content":"According to the above analysis, does the contract generate returns for earlier investors through revenue paid by new investors? Therefore, determine whether it is a Ponzi contract. (Only anwser 'true' or 'false' with json: {'decision': anwser})"
+        },
+        "abalation":{
+            "content":"According to the above analysis, does the contract generate returns for earlier investors through revenue paid by new investors? Therefore, determine whether it is a Ponzi contract. (Only anwser 'true' or 'false' with json: {'decision': anwser})"
+        }
+    }
+}
